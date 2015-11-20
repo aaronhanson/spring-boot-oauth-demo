@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>OAuth Sample Application</title>
+        <link th:href="@{/style.css}" type="text/css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div id="header" layout:fragment="header">
+            <h2>OAuth Sample Application</h2>
+        </div>
+        <div id="content" layout:fragment="content">
+        </div>
+        <div id="footer" layout:fragment="footer">
+            <div sec:authorize="isAuthenticated()">
+                <form name="logoutForm" th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

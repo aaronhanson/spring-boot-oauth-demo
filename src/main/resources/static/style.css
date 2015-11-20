@@ -1,0 +1,39 @@
+html, body, input {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #555;
+}
+
+html {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#content,
+#footer {
+    text-align: center;
+}
+
+input[type=submit] {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 16px 16px;
+}
+
+#header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.oauth-login-link {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 16px 16px 16px 52px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    text-decoration: none;
+}
+
+.github-login {
+    background-image: url('/GitHub-Mark-32px.png');
+}

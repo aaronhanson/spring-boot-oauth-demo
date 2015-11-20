@@ -29,4 +29,14 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+    compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE"
+
+    compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+    compile("org.pac4j:spring-security-pac4j:1.3.0") {
+        exclude module: 'spring-security-web'
+        exclude module: 'spring-security-config'
+    }
+
+    compile group: 'org.pac4j', name: 'pac4j-oauth', version:'1.7.0'
 }
