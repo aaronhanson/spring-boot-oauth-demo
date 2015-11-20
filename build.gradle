@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+ext {
+    springBootVersion = '1.2.6.RELEASE'
+    groovyVersion = "2.4.3"
+}
+
+springBoot {
+    mainClass = "springboot.pac4j.SpringBootPac4jDemo"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+}
