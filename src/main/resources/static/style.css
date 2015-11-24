@@ -9,6 +9,10 @@ html {
     margin: 0 auto;
 }
 
+a, a:visited {
+    color: #555;
+}
+
 #content,
 #footer {
     text-align: center;
@@ -36,4 +40,20 @@ input[type=submit] {
 
 .github-login {
     background-image: url('/GitHub-Mark-32px.png');
+}
+
+.google-login {
+    background-image: url('/google-32px.png');
+}
+
+.twitter-login {
+    background-image: url('/twitter-logo-32px.png');
+}
+
+@media(max-width: 380px) {
+    .oauth-login-link {
+        display: block;
+        width: 100px;
+        margin: 10px auto;
+    }
 }

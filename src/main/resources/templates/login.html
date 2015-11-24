@@ -9,6 +9,8 @@
         <div id="content" layout:fragment="content">
             <h2>Sign In</h2>
             <a th:href="${gitHubAuthUrl}" th:class="'oauth-login-link github-login'">GitHub</a>
+            <a th:href="${google2AuthUrl}" th:class="'oauth-login-link google-login'">Google</a>
+            <a th:href="${twitterAuthUrl}" th:class="'oauth-login-link twitter-login'">Twitter</a>
         </div>
     </body>
 </html>
