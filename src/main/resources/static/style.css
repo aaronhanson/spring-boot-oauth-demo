@@ -1,8 +1,10 @@
-html, body, input {
+body,
+input {
     font-size: 16px;
     font-family: sans-serif;
     color: #555;
 }
+
 
 html {
     max-width: 900px;
@@ -13,19 +15,42 @@ a, a:visited {
     color: #555;
 }
 
-#content,
-#footer {
-    text-align: center;
+#user-details {
+    float: right;
 }
 
-input[type=submit] {
+#user-details input[type=submit] {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-top: 16px;
+    padding: 8px 16px;
+}
+
+#site-nav {
+    margin-top: 10px;
+}
+
+#site-nav a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#content input[type=submit] {
     border: 1px solid #ccc;
     background: #fff;
     padding: 16px 16px;
 }
 
+input[type=text] {
+    padding: 8px;
+}
+
+.stacked-form input {
+    display: block;
+    margin: 10px 0;
+}
+
 #header {
-    text-align: center;
     border-bottom: 1px solid #ccc;
 }
 
@@ -33,9 +58,11 @@ input[type=submit] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 16px 16px 16px 52px;
-    display: inline-block;
     border: 1px solid #ccc;
     text-decoration: none;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
 }
 
 .github-login {
@@ -50,10 +77,6 @@ input[type=submit] {
     background-image: url('/twitter-logo-32px.png');
 }
 
-@media(max-width: 380px) {
-    .oauth-login-link {
-        display: block;
-        width: 100px;
-        margin: 10px auto;
-    }
+.sign-in-page {
+    text-align: center;
 }

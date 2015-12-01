@@ -5,9 +5,12 @@ import org.pac4j.oauth.client.GitHubClient
 import org.pac4j.oauth.client.Google2Client
 import org.pac4j.oauth.client.TwitterClient
 import org.pac4j.springframework.security.authentication.ClientAuthenticationProvider
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import springboot.pac4j.security.ClientUserDetailsService
+import springboot.pac4j.service.AccountService
 
 @Configuration
 class Pac4jConfig {
@@ -33,9 +36,20 @@ class Pac4jConfig {
     @Value('${oauth.google.app.secret}')
     String googleSecret
 
+    @Autowired
+    AccountService accountService
+
+    @Bean
+    ClientUserDetailsService clientUserDetailsService() {
+        return new ClientUserDetailsService(accountService: accountService)
+    }
+
     @Bean
     ClientAuthenticationProvider clientProvider() {
-        return new ClientAuthenticationProvider(clients: clients())
+        return new ClientAuthenticationProvider(
+                clients: clients(),
+                userDetailsService: clientUserDetailsService()
+        )
     }
 
     @Bean

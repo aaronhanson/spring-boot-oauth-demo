@@ -1,0 +1,28 @@
+logging.level=INFO
+
+spring.thymeleaf.cache=false
+
+oauth.callback.url=http://local.yourdomain.com:8080/callback
+
+oauth.github.app.key=YOUR_GITHUB_CLIENT_ID
+oauth.github.app.secret=YOUR_GITHUB_CLIENT_SECRET
+
+oauth.google.app.key=YOUR_GOOGLE_CLIENT_ID
+oauth.google.app.secret=YOUR_GOOGLE_CLIENT_SECRET
+
+oauth.twitter.app.key=YOUR_TWITTER_CONSUMER_KEY
+oauth.twitter.app.secret=YOUR_TWITTER_CONSUMER_SECRET
+
+# datastore configuration
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:oauth-demo
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.datasource.initialize=true
+spring.datasource.continueOnError=false
+
+# for redis http sessions
+spring.redis.host=localhost
+spring.redis.port=6379
+spring.redis.password=

@@ -3,12 +3,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layouts/default">
     <head>
-        <title>Spring Pac4j Demo</title>
+        <title>Account Detail</title>
     </head>
     <body>
         <div id="content" layout:fragment="content">
-            <h2>Home Screen Info</h2>
-            Hi <span th:text="${#authentication.principal.username}" th:remove="tag"/>.
+            <h2>Account Detail</h2>
+            <div th:text="${#authentication.principal.username}"></div>
         </div>
     </body>
 </html>

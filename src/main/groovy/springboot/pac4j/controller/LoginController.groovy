@@ -8,6 +8,9 @@ import org.pac4j.oauth.client.GitHubClient
 import org.pac4j.oauth.client.Google2Client
 import org.pac4j.oauth.client.TwitterClient
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.authentication.AnonymousAuthenticationToken
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
@@ -23,6 +26,10 @@ class LoginController {
 
     @RequestMapping("/login")
     String login(HttpServletRequest request, HttpServletResponse response, Model model) {
+        if (isAuthenticated()) {
+            return "redirect:/"
+        }
+
         final WebContext context = new J2EContext(request, response)
         final GitHubClient gitHubClient = (GitHubClient) clients.findClient(GitHubClient)
         final Google2Client google2Client = (Google2Client) clients.findClient(Google2Client)
@@ -37,6 +44,11 @@ class LoginController {
 
     public String getClientLocation(BaseClient client, WebContext context) {
         return client.getRedirectAction(context, false, false).getLocation()
+    }
+
+    protected boolean isAuthenticated() {
+        Authentication auth = SecurityContextHolder.context.authentication
+        return !(auth instanceof AnonymousAuthenticationToken)
     }
 
 }

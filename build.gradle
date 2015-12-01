@@ -39,4 +39,10 @@ dependencies {
     }
 
     compile group: 'org.pac4j', name: 'pac4j-oauth', version:'1.7.0'
+
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compile 'com.h2database:h2'
+
+    compile 'org.springframework.session:spring-session:1.1.0.M1'
+    compile "org.springframework.boot:spring-boot-starter-redis"
 }

@@ -9,16 +9,23 @@
     </head>
     <body>
         <div id="header" layout:fragment="header">
-            <h2>OAuth Sample Application</h2>
-        </div>
-        <div id="content" layout:fragment="content">
-        </div>
-        <div id="footer" layout:fragment="footer">
-            <div sec:authorize="isAuthenticated()">
+            <h2 style="float: left;">OAuth Example</h2>
+            <div id="user-details" sec:authorize="isAuthenticated()">
                 <form name="logoutForm" th:action="@{/logout}" method="post">
                     <input type="submit" value="Logout"/>
                 </form>
             </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div id="site-nav">
+            <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/account}"> My Account</a>
+            </div>
+        </div>
+        <div id="content" layout:fragment="content">
+        </div>
+        <div id="footer" layout:fragment="footer">
         </div>
     </body>
 </html>

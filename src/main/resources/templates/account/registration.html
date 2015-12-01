@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+    <head>
+        <title>Account Registration</title>
+    </head>
+    <body>
+        <div id="content" layout:fragment="content">
+            <h2>Account Registration</h2>
+            <form id="registrationForm" name="registrationForm" th:action="@{/registration}" method="post" th:class="stacked-form">
+                <label for="displayName">Display Name</label>
+                <input type="text" id="displayName" name="displayName" value="" />
+                <input type="submit" name="submit" value="Register Me!" />
+            </form>
+        </div>
+    </body>
+</html>

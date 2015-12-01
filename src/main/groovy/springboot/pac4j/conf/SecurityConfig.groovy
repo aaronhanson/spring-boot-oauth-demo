@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy
 import org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy
+import springboot.pac4j.ClientSuccessHandler
 
 @Configuration
 @EnableWebSecurity
@@ -67,8 +68,13 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new ClientAuthenticationFilter(
                 clients: clients,
                 sessionAuthenticationStrategy: sas(),
-                authenticationManager: clientProvider as AuthenticationManager
+                authenticationManager: clientProvider as AuthenticationManager,
+                authenticationSuccessHandler: clientSuccessHandler()
         )
+    }
+
+    ClientSuccessHandler clientSuccessHandler() {
+        return new ClientSuccessHandler()
     }
 
     @Bean
